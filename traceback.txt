@@ -1,0 +1,47 @@
+﻿I'm sorry, but an uncaught exception occurred.
+
+While running game code:
+  File "game/custom/customlabels.rpy", line 3, in script
+    scene home_bg with dissolve
+TypeError: Missing required positional arguments: 'info'
+
+-- Full Traceback ------------------------------------------------------------
+
+Full traceback:
+  File "game/custom/customlabels.rpy", line 3, in script
+    scene home_bg with dissolve
+  File "C:\Perso\RenPy\renpy\ast.py", line 1658, in execute
+    renpy.exports.with_statement(trans, paired=paired)
+  File "C:\Perso\RenPy\renpy\exports.py", line 1657, in with_statement
+    return renpy.game.interface.do_with(trans, paired, clear=clear)
+  File "C:\Perso\RenPy\renpy\display\core.py", line 2798, in do_with
+    return self.interact(trans_pause=True,
+  File "C:\Perso\RenPy\renpy\display\core.py", line 3377, in interact
+    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, pause_modal=pause_modal, **kwargs) # type: ignore
+  File "C:\Perso\RenPy\renpy\display\core.py", line 3810, in interact_core
+    root_widget.visit_all(lambda i : i.per_interact())
+  File "C:\Perso\RenPy\renpy\display\core.py", line 582, in visit_all
+    d.visit_all(callback, seen)
+  File "C:\Perso\RenPy\renpy\display\core.py", line 582, in visit_all
+    d.visit_all(callback, seen)
+  File "C:\Perso\RenPy\renpy\display\core.py", line 582, in visit_all
+    d.visit_all(callback, seen)
+  [Previous line repeated 1 more time]
+  File "C:\Perso\RenPy\renpy\display\screen.py", line 451, in visit_all
+    callback(self)
+  File "C:\Perso\RenPy\renpy\display\core.py", line 3810, in <lambda>
+    root_widget.visit_all(lambda i : i.per_interact())
+  File "C:\Perso\RenPy\renpy\display\screen.py", line 462, in per_interact
+    self.update()
+  File "C:\Perso\RenPy\renpy\display\screen.py", line 653, in update
+    self.screen.function(**self.scope)
+  File "C:\Perso\RenPy\renpy\ast.py", line 294, in apply_arguments
+    return parameters.apply(args, kwargs, ignore_errors)
+  File "C:\Perso\RenPy\renpy\ast.py", line 230, in apply
+    raise TypeError(
+TypeError: Missing required positional arguments: 'info'
+
+Windows-10-10.0.19044 AMD64
+Ren'Py 8.0.3.22090809
+ProjectCW 1.0
+Wed May 31 10:48:49 2023
