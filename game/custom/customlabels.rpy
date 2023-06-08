@@ -39,8 +39,24 @@ label Diningroom:
     else:
         scene diningroom_bg with dissolve     
     
-    show screen Header 
+    show screen Header
 
+    return
+
+label Bathroom:
+    $ curLoc = "Bathroom"
+    $ curLocForEvent = "Bathroom"
+
+    if BathroomFirstVisit:
+        hide screen Header        
+        scene bathroom_bg with dissolve
+        m "This is our bathroom"
+        $ BathroomFirstVisit = False
+    else:
+        scene bathroom_bg with dissolve     
+    
+    show screen Header
+    
     return
 
 label Kitchen:
@@ -55,11 +71,59 @@ label Kitchen:
     else:
         scene kitchen_bg with dissolve     
     
-    show screen Header 
+    show screen Header
+    
 
     return
 
+label BobRoom:
+    $ curLoc = "Bob's Room"
+    $ curLocForEvent = "BobRoom"
 
+    if BobRoomFirstVisit:
+        hide screen Header        
+        scene bobroom_bg with dissolve
+        m "This my bedroom"
+        $ BobRoomFirstVisit = False
+    else:
+        scene bobroom_bg with dissolve     
+    
+    show screen Header
+    show screen BobRoomIcons
+
+    return
+
+label LisaRoom:
+    $ curLoc = "Lisa's Room"
+    $ curLocForEvent = "LisaRoom"
+
+    if LisaRoomFirstVisit:
+        hide screen Header        
+        scene lisaroom_bg with dissolve
+        m "This Lisa's bedroom"
+        $ LisaRoomFirstVisit = False
+    else:
+        scene lisaroom_bg with dissolve
+       
+    show screen Header
+    
+    return
+
+label TVRoom:
+    $ curLoc = "TV Room"
+    $ curLocForEvent = "TVRoom"
+
+    if TVRoomFirstVisit:
+        hide screen Header        
+        scene tvroom_bg with dissolve
+        m "This the TV room"
+        $ TVRoomFirstVisit = False
+    else:
+        scene tvroom_bg with dissolve     
+    
+    show screen Header 
+    
+    return
 
 # Label called when we want to add an hour
 label add1hour:

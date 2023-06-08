@@ -38,7 +38,11 @@ label variables:
 
     $ curLoc = ""
     $ curLocForEvent = ""
-    $ DiningRoomFirstVisit = False
-    $ KitchenFirstVisit = False
+    $ DiningRoomFirstVisit = True
+    $ BathroomFirstVisit = True
+    $ KitchenFirstVisit = True
+    $ TVRoomFirstVisit = True
+    $ BobRoomFirstVisit = True
+    $ LisaRoomFirstVisit = True
 
     return
