@@ -11,7 +11,7 @@ label variables:
 
     $ Date = Calendar(10, 0, 5, 5, MonthsTuple, 5, FullWeekTuple, DaysPerMonthTuple)
       
-    $ BobObj = MainCharacter("Bob", 200, 0, 0, 0, "BobRoom")
+    $ BobObj = MainCharacter("Bob", 200, 0, 0, 0, 0, 0, "BobRoom")
     $ DaughterObj = GirlCharacter("Lisa", 50, 5, 1, 10, 0, "LisaRoom",
         {
         "0700":"LisaRoom","0730":"LisaRoom","0800":"Bathroom","0830":"Bathroom",
@@ -44,5 +44,10 @@ label variables:
     $ TVRoomFirstVisit = True
     $ BobRoomFirstVisit = True
     $ LisaRoomFirstVisit = True
+    $ NbHackRead = 0
+    $ NbYogaRead = 0
+    $ NbPhotoRead = 0
+    $ NbStudyHours = 0
+    $ NbSportHours = 0
 
     return

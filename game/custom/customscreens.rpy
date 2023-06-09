@@ -57,9 +57,9 @@ screen BobRoomIcons():
         xalign 0.90 yalign 0.0
         hbox:
             imagebutton:
-                idle "money_icon_idle"
-                hover "money_icon_hover"
-                hovered Show("disp_info",None,info="Sell your pictures"), Hide("LocationsSubMenu")
+                idle "comp_icon_idle"
+                hover "comp_icon_hover"
+                hovered Show("disp_info",None,info="Go on computer"), Hide("LocationsSubMenu")
                 unhovered Hide("disp_info")
                 action Hide("Picture_exchange"), Hide("disp_info"), Hide("ActionsSubMenu")#, Call("selling_pictures")
             imagebutton:
@@ -67,25 +67,31 @@ screen BobRoomIcons():
                 hover "study_icon_hover"
                 hovered Show("disp_info",None,info="Study 1 hour"), Hide("LocationsSubMenu")
                 unhovered Hide("disp_info")
-                action Hide("disp_info"), Hide("ActionsSubMenu")#, Call("Study")
+                action Hide("disp_info"), Hide("ActionsSubMenu"), Call("Study")
+            imagebutton:
+                idle "sport_icon_idle"
+                hover "sport_icon_hover"
+                hovered Show("disp_info",None,info="Sport 1 hour"), Hide("LocationsSubMenu")
+                unhovered Hide("disp_info")
+                action Hide("disp_info"), Hide("ActionsSubMenu"), Call("Sport")
             imagebutton:
                 idle "hack_icon_idle"
                 hover "hack_icon_hover"
                 hovered Show("disp_info",None,info="Read about Hacking"), Hide("LocationsSubMenu")
                 unhovered Hide("disp_info")
-                action Hide("disp_info"), Hide("ActionsSubMenu")#, Call("StudyHacking")
+                action Hide("disp_info"), Hide("ActionsSubMenu"), Call("ReadHack")
             imagebutton:
                 idle "yoga_icon_idle"
                 hover "yoga_icon_hover"
                 hovered Show("disp_info",None,info="Read about Yoga"), Hide("LocationsSubMenu")
                 unhovered Hide("disp_info")
-                action Hide("disp_info"), Hide("ActionsSubMenu")#, Call("StudyYoga")
+                action Hide("disp_info"), Hide("ActionsSubMenu"), Call("ReadYoga")
             imagebutton:
                 idle "photo_icon_idle"
                 hover "photo_icon_hover"
                 hovered Show("disp_info",None,info="Read about Photography"), Hide("LocationsSubMenu")
                 unhovered Hide("disp_info")
-                action Hide("disp_info"), Hide("ActionsSubMenu")#, Call("StudyPhoto")
+                action Hide("disp_info"), Hide("ActionsSubMenu"), Call("ReadPhoto")
 
 
 screen disp_info(info):
@@ -101,41 +107,83 @@ screen LocationsSubMenu():
     frame:
         background "#00000060"
         xalign 1.0 ypos 80
-        xsize 180 ysize 225
-        padding 0,0
+        xsize 85 ysize 1000
+        padding 5,0
         margin 0,0
         vbox:
-            xalign 0.95
-            textbutton "Bob's Room":
+            xalign 1.0
+            imagebutton:
                 xalign 1.0
+                idle "bedroom_icon_idle"
+                hover "bedroom_icon_hover"
                 hovered Show("disp_info",None,info="Move to Bob's Room")
                 unhovered Hide("disp_info")
                 action Hide("LocationsSubMenu"), Hide("disp_info"), Show("BobRoomIcons"), SetVariable("curLocForEvent","BobRoom"), Jump("GAMECONTINUE")
-            textbutton "Lisa's Room":
+            #textbutton "Bob's Room":
+            #    xalign 1.0
+            #    hovered Show("disp_info",None,info="Move to Bob's Room")
+            #    unhovered Hide("disp_info")
+            #    action Hide("LocationsSubMenu"), Hide("disp_info"), Show("BobRoomIcons"), SetVariable("curLocForEvent","BobRoom"), Jump("GAMECONTINUE")
+            imagebutton:
                 xalign 1.0
+                idle "bedroom2_icon_idle"
+                hover "bedroom2_icon_hover"
                 hovered Show("disp_info",None,info="Move to Lisa's Room")
                 unhovered Hide("disp_info")
                 action Hide("LocationsSubMenu"), Hide("BobRoomIcons"), Hide("disp_info"), SetVariable("curLocForEvent","LisaRoom"), Jump("GAMECONTINUE")
-            textbutton "Kitchen":
+            #textbutton "Lisa's Room":
+            #    xalign 1.0
+            #   hovered Show("disp_info",None,info="Move to Lisa's Room")
+            #    unhovered Hide("disp_info")
+            #    action Hide("LocationsSubMenu"), Hide("BobRoomIcons"), Hide("disp_info"), SetVariable("curLocForEvent","LisaRoom"), Jump("GAMECONTINUE")
+            imagebutton:
                 xalign 1.0
+                idle "kitchen_icon_idle"
+                hover "kitchen_icon_hover"
                 hovered Show("disp_info",None,info="Move to Kitchen")
                 unhovered Hide("disp_info")
                 action Hide("LocationsSubMenu"), Hide("BobRoomIcons"), Hide("disp_info"), SetVariable("curLocForEvent","Kitchen"), Jump("GAMECONTINUE")
-            textbutton "Dining Room":
+            #textbutton "Kitchen":
+            #    xalign 1.0
+            #    hovered Show("disp_info",None,info="Move to Kitchen")
+            #    unhovered Hide("disp_info")
+            #    action Hide("LocationsSubMenu"), Hide("BobRoomIcons"), Hide("disp_info"), SetVariable("curLocForEvent","Kitchen"), Jump("GAMECONTINUE")
+            #textbutton "Dining Room":
+            #    xalign 1.0
+            #    hovered Show("disp_info",None,info="Move to Dining Room")
+            #    unhovered Hide("disp_info")
+            #    action Hide("LocationsSubMenu"), Hide("BobRoomIcons"), Hide("disp_info"), SetVariable("curLocForEvent","Diningroom"), Jump("GAMECONTINUE")
+            imagebutton:
                 xalign 1.0
-                hovered Show("disp_info",None,info="Move to Dining Room")
-                unhovered Hide("disp_info")
-                action Hide("LocationsSubMenu"), Hide("BobRoomIcons"), Hide("disp_info"), SetVariable("curLocForEvent","Diningroom"), Jump("GAMECONTINUE")
-            textbutton "TV Room":
-                xalign 1.0
+                idle "tv_icon_idle"
+                hover "tv_icon_hover"
                 hovered Show("disp_info",None,info="Move to TV Room")
                 unhovered Hide("disp_info")
-                action Hide("LocationsSubMenu"), Hide("BobRoomIcons"), Hide("disp_info"), SetVariable("curLocForEvent","TVRoom"), Jump("GAMECONTINUE") 
-            textbutton "Bathroom":
+                action Hide("LocationsSubMenu"), Hide("BobRoomIcons"), Hide("disp_info"), SetVariable("curLocForEvent","TVRoom"), Jump("GAMECONTINUE")
+            #textbutton "TV Room":
+            #    xalign 1.0
+            #    hovered Show("disp_info",None,info="Move to TV Room")
+            #    unhovered Hide("disp_info")
+            #    action Hide("LocationsSubMenu"), Hide("BobRoomIcons"), Hide("disp_info"), SetVariable("curLocForEvent","TVRoom"), Jump("GAMECONTINUE") 
+            imagebutton:
                 xalign 1.0
+                idle "bath_icon_idle"
+                hover "bath_icon_hover"
                 hovered Show("disp_info",None,info="Move to Bathroom")
                 unhovered Hide("disp_info")
-                action Hide("LocationsSubMenu"), Hide("BobRoomIcons"), Hide("disp_info"), SetVariable("curLocForEvent","Bathroom"), Jump("GAMECONTINUE") 
+                action Hide("LocationsSubMenu"), Hide("BobRoomIcons"), Hide("disp_info"), SetVariable("curLocForEvent","Bathroom"), Jump("GAMECONTINUE")
+            #textbutton "Bathroom":
+            #    xalign 1.0
+            #    hovered Show("disp_info",None,info="Move to Bathroom")
+            #    unhovered Hide("disp_info")
+            #    action Hide("LocationsSubMenu"), Hide("BobRoomIcons"), Hide("disp_info"), SetVariable("curLocForEvent","Bathroom"), Jump("GAMECONTINUE")
+            imagebutton:
+                xalign 1.0
+                idle "jacuzzi_icon_idle"
+                hover "jacuzzi_icon_hover"
+                hovered Show("disp_info",None,info="Move to Jacuzzi")
+                unhovered Hide("disp_info")
+                action Hide("LocationsSubMenu"), Hide("BobRoomIcons"), Hide("disp_info")#, SetVariable("curLocForEvent","Jacuzzi"), Jump("GAMECONTINUE")
 
 screen StatsSubMenu():
     frame:
@@ -178,29 +226,59 @@ screen TimeSubMenu():
 
 screen QuickStats():
     frame:
-        background "#00000060"
+        background "#000000aa"
         xalign 0 ypos 80
-        xsize 250 ysize 470
+        xsize 320 ysize 1000
         padding 0,0
         margin 0,0
         vbox:
             #Display Bob's Stats
             textbutton "{size=20}{color=[wcolor]}[BobObj.Name]'s quick stats{/color}{/size}"
             textbutton "{size=15}{color=[wcolor]}You have [BobObj.Money] ${/color}{/size}"
+            
+            $ sp = 10 - NbSportHours
             textbutton "{size=15}{color=[wcolor]}Your strength is [BobObj.Strength] out of 10{/color}{/size}"
-            bar value StaticValue(BobObj.Strength, 10) xpos 5 xsize 240 ysize 15
+            if BobObj.Strength < 10:
+                textbutton "{size=15}{color=[wcolor]}Do sport for [sp]h to improve{/color}{/size}"
+            bar value StaticValue(BobObj.Strength, 10) xpos 5 xsize 310 ysize 15
+            bar value StaticValue(NbSportHours, 10) xpos 5 xsize 310 ysize 15
+            
+            $ st = 10 - NbStudyHours
             textbutton "{size=15}{color=[wcolor]}Your intel is [BobObj.Intel] out of 10{/color}{/size}"
-            bar value StaticValue(BobObj.Intel, 10) xpos 5 xsize 240 ysize 15
-            textbutton "{size=15}{color=[wcolor]}Your stealth is [BobObj.Stealth] out of 10{/color}{/size}"
-            bar value StaticValue(BobObj.Stealth, 10) xpos 5 xsize 240 ysize 15            
-            textbutton ""
+            if BobObj.Intel < 10:
+                textbutton "{size=15}{color=[wcolor]}Study [st]h to improve{/color}{/size}"
+            bar value StaticValue(BobObj.Intel, 10) xpos 5 xsize 310 ysize 15
+            bar value StaticValue(NbStudyHours, 10) xpos 5 xsize 310 ysize 15
+            
+            $ yo = 5 - NbYogaRead
+            textbutton "{size=15}{color=[wcolor]}Your Yoga Skills are [BobObj.YogaSkills] out of 10{/color}{/size}"
+            if BobObj.YogaSkills < 10:
+                textbutton "{size=15}{color=[wcolor]}Read about Yoga [yo]h to improve{/color}{/size}"
+            bar value StaticValue(BobObj.YogaSkills, 10) xpos 5 xsize 310 ysize 15
+            bar value StaticValue(NbYogaRead, 5) xpos 5 xsize 310 ysize 15
+            
+            $ ha = 5 - NbHackRead
+            textbutton "{size=15}{color=[wcolor]}Your Hacking Skills are [BobObj.HackingSkills] out of 10{/color}{/size}"
+            if BobObj.HackingSkills < 10:
+                textbutton "{size=15}{color=[wcolor]}Read about Hacking [ha]h to improve{/color}{/size}"
+            bar value StaticValue(BobObj.HackingSkills, 10) xpos 5 xsize 310 ysize 15 
+            bar value StaticValue(NbHackRead, 5) xpos 5 xsize 310 ysize 15
+            
+            $ ph = 5 - NbPhotoRead
+            textbutton "{size=15}{color=[wcolor]}Your Photography Skills are [BobObj.PhotoSkills] out of 10{/color}{/size}"
+            if BobObj.PhotoSkills < 10:
+                textbutton "{size=15}{color=[wcolor]}Read about Photography [ph]h to improve{/color}{/size}"
+            bar value StaticValue(BobObj.PhotoSkills, 10) xpos 5 xsize 310 ysize 15  
+            bar value StaticValue(NbPhotoRead, 5) xpos 5 xsize 310 ysize 15
+
+            textbutton "------------------------------------------"
             #Display Lisa's Stats
             textbutton "{size=20}{color=[wcolor]}[DaughterObj.Name]'s quick stats{/color}{/size}"
             textbutton "{size=15}{color=[wcolor]}Her mood is [DaughterObj.Mood] out of 10{/color}{/size}"
-            bar value StaticValue(DaughterObj.Mood, 10) xpos 5 xsize 240 ysize 15
+            bar value StaticValue(DaughterObj.Mood, 10) xpos 5 xsize 310 ysize 15
             textbutton "{size=15}{color=[wcolor]}Her feelings are [DaughterObj.Feelings] out of 10{/color}{/size}"
-            bar value StaticValue(DaughterObj.Feelings, 10) xpos 5 xsize 240 ysize 15
+            bar value StaticValue(DaughterObj.Feelings, 10) xpos 5 xsize 310 ysize 15
             textbutton "{size=15}{color=[wcolor]}Her shyness is [DaughterObj.Shyness] out of 10{/color}{/size}"
-            bar value StaticValue(DaughterObj.Shyness, 10) xpos 5 xsize 240 ysize 15
+            bar value StaticValue(DaughterObj.Shyness, 10) xpos 5 xsize 310 ysize 15
             textbutton "{size=15}{color=[wcolor]}Her arousal is [DaughterObj.Arousal] out of 10{/color}{/size}"
-            bar value StaticValue(DaughterObj.Arousal, 10) xpos 5 xsize 240 ysize 15
+            bar value StaticValue(DaughterObj.Arousal, 10) xpos 5 xsize 310 ysize 15

@@ -52,12 +52,14 @@ init python:
     ## Class MainCharacter
     ############################################################################
     class MainCharacter(object):
-        def __init__(self, p_Name, p_Money, p_Strength, p_Intel, p_Stealth, p_Location):
+        def __init__(self, p_Name, p_Money, p_Strength, p_Intel, p_YogaSkills, p_HackingSkills, p_PhotoSkills, p_Location):
                 self.Name = p_Name            
                 self.Money = p_Money
                 self.Strength = p_Strength
                 self.Intel = p_Intel
-                self.Stealth = p_Stealth
+                self.YogaSkills = p_YogaSkills
+                self.HackingSkills = p_HackingSkills
+                self.PhotoSkills = p_PhotoSkills
                 self.Location = p_Location
 
         def WinMoney(self, amount):
@@ -88,15 +90,37 @@ init python:
             if self.Intel < 1:
                 self.Intel = 0
 
-        def IncreaseStealth(self, value):
-            self.Stealth += value
-            if self.Stealth > 10:
-                self.Stealth = 10
+        def IncreaseYogaSkills(self, value):
+            self.YogaSkills += value
+            if self.YogaSkills > 10:
+                self.YogaSkills = 10
 
-        def DecreaseStealth(self, value):
-            self.Stealth -= value
-            if self.Stealth < 1:
-                self.Stealth = 0         
+        def DecreaseYogaSkills(self, value):
+            self.YogaSkills -= value
+            if self.YogaSkills < 1:
+                self.YogaSkills = 0
+        
+        def IncreaseHackingSkills(self, value):
+            self.HackingSkills += value
+            if self.HackingSkills > 10:
+                self.HackingSkills = 10
+
+        def DecreaseHackingSkills(self, value):
+            self.HackingSkills -= value
+            if self.HackingSkills < 1:
+                self.HackingSkills = 0
+        
+        def IncreasePhotoSkills(self, value):
+            self.PhotoSkills += value
+            if self.PhotoSkills > 10:
+                self.PhotoSkills = 10
+
+        def DecreasePhotoSkills(self, value):
+            self.PhotoSkills -= value
+            if self.PhotoSkills < 1:
+                self.PhotoSkills = 0
+
+                          
 
     ############################################################################
     ## Class GirlCharacter

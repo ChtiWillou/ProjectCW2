@@ -159,4 +159,34 @@ label changeDay:
             $ Date.Hours = 7
             $ Date.Minutes = 0
     return
+
+# Label called when we want to read about yoga
+label ReadYoga:
+    $ Reading("Yoga")
+    call add1hour
+    return
+
+# Label called when we want to read about hacking
+label ReadHack:
+    $ Reading("Hack")
+    call add1hour
+    return
+
+# Label called when we want to read about photo
+label ReadPhoto:
+    $ Reading("Photo")
+    call add1hour
+    return
+
+# Label called when we want to study
+label Study:
+    $ Study()
+    call add1hour
+    return
+
+# Label called when we want to study
+label Sport:
+    $ Sport()
+    call add1hour
+    return
     

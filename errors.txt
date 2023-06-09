@@ -2,9 +2,10 @@
 errors listed below, and try again.
 
 
-File "game/custom/customscreens.rpy", line 46: expected a keyword argument, colon, or end of line.
-    imagebutton "Sell pictures":
-                ^
+File "game/custom/pythoncode.rpy", line 35: unexpected indent
+            if NbStudyHours == 10:
+            ^
+    
 
 Ren'Py Version: Ren'Py 8.0.3.22090809
-Thu Jun  8 18:12:47 2023
+Fri Jun  9 13:41:19 2023

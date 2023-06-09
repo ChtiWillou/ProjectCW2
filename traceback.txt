@@ -1,32 +1,72 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/custom/customlabels.rpy", line 21, in script call
-    call expression curLocForEvent
-  File "game/custom/customlabels.rpy", line 48, in script
-    if BathroomRoomFirstVisit:
-  File "game/custom/customlabels.rpy", line 48, in <module>
-    if BathroomRoomFirstVisit:
-NameError: name 'BathroomRoomFirstVisit' is not defined
+  File "game/custom/customlabels.rpy", line 25, in script
+    $ renpy.pause(hard=True)
+  File "game/custom/customlabels.rpy", line 25, in <module>
+    $ renpy.pause(hard=True)
+  File "game/custom/customscreens.rpy", line 185, in execute
+    screen QuickStats():
+  File "game/custom/customscreens.rpy", line 185, in execute
+    screen QuickStats():
+  File "game/custom/customscreens.rpy", line 186, in execute
+    frame:
+  File "game/custom/customscreens.rpy", line 192, in execute
+    vbox:
+  File "game/custom/customscreens.rpy", line 209, in execute
+    $ yo = 10 - NbYogaHours
+  File "game/custom/customscreens.rpy", line 209, in <module>
+    $ yo = 10 - NbYogaHours
+NameError: name 'NbYogaHours' is not defined
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/custom/customlabels.rpy", line 21, in script call
-    call expression curLocForEvent
-  File "game/custom/customlabels.rpy", line 48, in script
-    if BathroomRoomFirstVisit:
-  File "D:\Renpy\renpy-8.0.3-sdk\renpy\ast.py", line 2115, in execute
-    if renpy.python.py_eval(condition):
-  File "D:\Renpy\renpy-8.0.3-sdk\renpy\python.py", line 1092, in py_eval
-    return py_eval_bytecode(code, globals, locals)
-  File "D:\Renpy\renpy-8.0.3-sdk\renpy\python.py", line 1085, in py_eval_bytecode
-    return eval(bytecode, globals, locals)
-  File "game/custom/customlabels.rpy", line 48, in <module>
-    if BathroomRoomFirstVisit:
-NameError: name 'BathroomRoomFirstVisit' is not defined
+  File "game/custom/customlabels.rpy", line 25, in script
+    $ renpy.pause(hard=True)
+  File "C:\Perso\RenPy\renpy\ast.py", line 1131, in execute
+    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
+  File "C:\Perso\RenPy\renpy\python.py", line 1061, in py_exec_bytecode
+    exec(bytecode, globals, locals)
+  File "game/custom/customlabels.rpy", line 25, in <module>
+    $ renpy.pause(hard=True)
+  File "C:\Perso\RenPy\renpy\exports.py", line 1537, in pause
+    rv = renpy.ui.interact(mouse='pause', type='pause', roll_forward=roll_forward, pause=delay, pause_modal=modal)
+  File "C:\Perso\RenPy\renpy\ui.py", line 299, in interact
+    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
+  File "C:\Perso\RenPy\renpy\display\core.py", line 3377, in interact
+    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, pause_modal=pause_modal, **kwargs) # type: ignore
+  File "C:\Perso\RenPy\renpy\display\core.py", line 3810, in interact_core
+    root_widget.visit_all(lambda i : i.per_interact())
+  File "C:\Perso\RenPy\renpy\display\core.py", line 582, in visit_all
+    d.visit_all(callback, seen)
+  File "C:\Perso\RenPy\renpy\display\core.py", line 582, in visit_all
+    d.visit_all(callback, seen)
+  File "C:\Perso\RenPy\renpy\display\core.py", line 582, in visit_all
+    d.visit_all(callback, seen)
+  File "C:\Perso\RenPy\renpy\display\screen.py", line 451, in visit_all
+    callback(self)
+  File "C:\Perso\RenPy\renpy\display\core.py", line 3810, in <lambda>
+    root_widget.visit_all(lambda i : i.per_interact())
+  File "C:\Perso\RenPy\renpy\display\screen.py", line 462, in per_interact
+    self.update()
+  File "C:\Perso\RenPy\renpy\display\screen.py", line 653, in update
+    self.screen.function(**self.scope)
+  File "game/custom/customscreens.rpy", line 185, in execute
+    screen QuickStats():
+  File "game/custom/customscreens.rpy", line 185, in execute
+    screen QuickStats():
+  File "game/custom/customscreens.rpy", line 186, in execute
+    frame:
+  File "game/custom/customscreens.rpy", line 192, in execute
+    vbox:
+  File "game/custom/customscreens.rpy", line 209, in execute
+    $ yo = 10 - NbYogaHours
+  File "game/custom/customscreens.rpy", line 209, in <module>
+    $ yo = 10 - NbYogaHours
+NameError: name 'NbYogaHours' is not defined
 
-Windows-10-10.0.22621 AMD64
+Windows-10-10.0.19044 AMD64
 Ren'Py 8.0.3.22090809
 ProjectCW 1.0
-Thu Jun  8 19:22:19 2023
+Fri Jun  9 14:01:26 2023
