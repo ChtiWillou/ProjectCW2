@@ -2,10 +2,7 @@
 errors listed below, and try again.
 
 
-File "game/custom/pythoncode.rpy", line 35: unexpected indent
-            if NbStudyHours == 10:
-            ^
-    
+File "game/custom/customscreens.rpy", line 77: Indentation mismatch.
 
 Ren'Py Version: Ren'Py 8.0.3.22090809
-Fri Jun  9 13:41:19 2023
+Fri Jun  9 14:51:46 2023

@@ -16,14 +16,18 @@ screen Header():
                     hovered Show("disp_info",None,info="Show Stats"), Show("QuickStats"), Hide("TimeSubMenu"), Hide("LocationsSubMenu")
                     unhovered Hide("disp_info"), Hide("QuickStats")
                     action Hide("disp_info")
-                text " "               
-                imagebutton:
-                    idle "time_icon_idle"
-                    hover "time_icon_hover"
-                    hovered Show("disp_info",None,info="Add time"), Hide("LocationsSubMenu")
-                    unhovered Hide("disp_info")
-                    action Hide("disp_info"), ToggleScreen("TimeSubMenu")
-                text " "                
+                
+                if (Date.Hours >= 0 and Date.Hours <= 1) or (Date.Hours >= 6 and Date.Hours <= 23):               
+                    imagebutton:
+                        idle "time_icon_idle"
+                        hover "time_icon_hover"
+                        hovered Show("disp_info",None,info="Add time"), Hide("LocationsSubMenu")
+                        unhovered Hide("disp_info")
+                        action Hide("disp_info"), ToggleScreen("TimeSubMenu")
+                    
+                else:
+                    imagebutton:
+                        idle "empty"
                 imagebutton:
                     idle "nextday_icon_idle"
                     hover "nextday_icon_hover"
@@ -74,24 +78,27 @@ screen BobRoomIcons():
                 hovered Show("disp_info",None,info="Sport 1 hour"), Hide("LocationsSubMenu")
                 unhovered Hide("disp_info")
                 action Hide("disp_info"), Hide("ActionsSubMenu"), Call("Sport")
-            imagebutton:
-                idle "hack_icon_idle"
-                hover "hack_icon_hover"
-                hovered Show("disp_info",None,info="Read about Hacking"), Hide("LocationsSubMenu")
-                unhovered Hide("disp_info")
-                action Hide("disp_info"), Hide("ActionsSubMenu"), Call("ReadHack")
-            imagebutton:
-                idle "yoga_icon_idle"
-                hover "yoga_icon_hover"
-                hovered Show("disp_info",None,info="Read about Yoga"), Hide("LocationsSubMenu")
-                unhovered Hide("disp_info")
-                action Hide("disp_info"), Hide("ActionsSubMenu"), Call("ReadYoga")
-            imagebutton:
-                idle "photo_icon_idle"
-                hover "photo_icon_hover"
-                hovered Show("disp_info",None,info="Read about Photography"), Hide("LocationsSubMenu")
-                unhovered Hide("disp_info")
-                action Hide("disp_info"), Hide("ActionsSubMenu"), Call("ReadPhoto")
+            if BobObj.HackingSkills < 10:
+                imagebutton:
+                    idle "hack_icon_idle"
+                    hover "hack_icon_hover"
+                    hovered Show("disp_info",None,info="Read about Hacking"), Hide("LocationsSubMenu")
+                    unhovered Hide("disp_info")
+                    action Hide("disp_info"), Hide("ActionsSubMenu"), Call("ReadHack")
+            if BobObj.YogaSkills < 10:
+                imagebutton:
+                    idle "yoga_icon_idle"
+                    hover "yoga_icon_hover"
+                    hovered Show("disp_info",None,info="Read about Yoga"), Hide("LocationsSubMenu")
+                    unhovered Hide("disp_info")
+                    action Hide("disp_info"), Hide("ActionsSubMenu"), Call("ReadYoga")
+            if BobObj.PhotoSkills < 10:
+                imagebutton:
+                    idle "photo_icon_idle"
+                    hover "photo_icon_hover"
+                    hovered Show("disp_info",None,info="Read about Photography"), Hide("LocationsSubMenu")
+                    unhovered Hide("disp_info")
+                    action Hide("disp_info"), Hide("ActionsSubMenu"), Call("ReadPhoto")
 
 
 screen disp_info(info):
