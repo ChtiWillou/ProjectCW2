@@ -7,6 +7,7 @@ define m = Character("Bob")
 define li = Character("Lisa")
 
 default wcolor = "#fff"
+default bcolor = "#000"
 
 # The game starts here.
 
