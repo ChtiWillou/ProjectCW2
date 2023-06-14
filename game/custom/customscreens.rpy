@@ -1,3 +1,48 @@
+screen BobRoomIcons():
+    frame:
+        background None
+        xalign 0.90 yalign 0.0
+        hbox:
+            imagebutton:
+                idle "comp_icon_idle"
+                hover "comp_icon_hover"
+                hovered Show("disp_info",None,info="Go on computer"), Hide("LocationsSubMenu")
+                unhovered Hide("disp_info")
+                action Hide("Picture_exchange"), Hide("disp_info"), Hide("ActionsSubMenu")#, Call("selling_pictures")
+            imagebutton:
+                idle "study_icon_idle"
+                hover "study_icon_hover"
+                hovered Show("disp_info",None,info="Study 1 hour"), Hide("LocationsSubMenu")
+                unhovered Hide("disp_info")
+                action Hide("disp_info"), Hide("ActionsSubMenu"), Call("Study")
+            imagebutton:
+                idle "sport_icon_idle"
+                hover "sport_icon_hover"
+                hovered Show("disp_info",None,info="Sport 1 hour"), Hide("LocationsSubMenu")
+                unhovered Hide("disp_info")
+                action Hide("disp_info"), Hide("ActionsSubMenu"), Call("Sport")
+            if BobObj.HackingSkills < 10:
+                imagebutton:
+                    idle "hack_icon_idle"
+                    hover "hack_icon_hover"
+                    hovered Show("disp_info",None,info="Read about Hacking"), Hide("LocationsSubMenu")
+                    unhovered Hide("disp_info")
+                    action Hide("disp_info"), Hide("ActionsSubMenu"), Call("ReadHack")
+            if BobObj.YogaSkills < 10:
+                imagebutton:
+                    idle "yoga_icon_idle"
+                    hover "yoga_icon_hover"
+                    hovered Show("disp_info",None,info="Read about Yoga"), Hide("LocationsSubMenu")
+                    unhovered Hide("disp_info")
+                    action Hide("disp_info"), Hide("ActionsSubMenu"), Call("ReadYoga")
+            if BobObj.PhotoSkills < 10:
+                imagebutton:
+                    idle "photo_icon_idle"
+                    hover "photo_icon_hover"
+                    hovered Show("disp_info",None,info="Read about Photography"), Hide("LocationsSubMenu")
+                    unhovered Hide("disp_info")
+                    action Hide("disp_info"), Hide("ActionsSubMenu"), Call("ReadPhoto")
+
 screen Header():
     frame:
         background "#00000060"
@@ -55,50 +100,7 @@ screen Header():
                     action Hide("disp_info"), ToggleScreen("LocationsSubMenu")                
                 
 
-screen BobRoomIcons():
-    frame:
-        background None
-        xalign 0.90 yalign 0.0
-        hbox:
-            imagebutton:
-                idle "comp_icon_idle"
-                hover "comp_icon_hover"
-                hovered Show("disp_info",None,info="Go on computer"), Hide("LocationsSubMenu")
-                unhovered Hide("disp_info")
-                action Hide("Picture_exchange"), Hide("disp_info"), Hide("ActionsSubMenu")#, Call("selling_pictures")
-            imagebutton:
-                idle "study_icon_idle"
-                hover "study_icon_hover"
-                hovered Show("disp_info",None,info="Study 1 hour"), Hide("LocationsSubMenu")
-                unhovered Hide("disp_info")
-                action Hide("disp_info"), Hide("ActionsSubMenu"), Call("Study")
-            imagebutton:
-                idle "sport_icon_idle"
-                hover "sport_icon_hover"
-                hovered Show("disp_info",None,info="Sport 1 hour"), Hide("LocationsSubMenu")
-                unhovered Hide("disp_info")
-                action Hide("disp_info"), Hide("ActionsSubMenu"), Call("Sport")
-            if BobObj.HackingSkills < 10:
-                imagebutton:
-                    idle "hack_icon_idle"
-                    hover "hack_icon_hover"
-                    hovered Show("disp_info",None,info="Read about Hacking"), Hide("LocationsSubMenu")
-                    unhovered Hide("disp_info")
-                    action Hide("disp_info"), Hide("ActionsSubMenu"), Call("ReadHack")
-            if BobObj.YogaSkills < 10:
-                imagebutton:
-                    idle "yoga_icon_idle"
-                    hover "yoga_icon_hover"
-                    hovered Show("disp_info",None,info="Read about Yoga"), Hide("LocationsSubMenu")
-                    unhovered Hide("disp_info")
-                    action Hide("disp_info"), Hide("ActionsSubMenu"), Call("ReadYoga")
-            if BobObj.PhotoSkills < 10:
-                imagebutton:
-                    idle "photo_icon_idle"
-                    hover "photo_icon_hover"
-                    hovered Show("disp_info",None,info="Read about Photography"), Hide("LocationsSubMenu")
-                    unhovered Hide("disp_info")
-                    action Hide("disp_info"), Hide("ActionsSubMenu"), Call("ReadPhoto")
+
 
 
 screen disp_info(info):
@@ -126,11 +128,6 @@ screen LocationsSubMenu():
                 hovered Show("disp_info",None,info="Move to Bob's Room")
                 unhovered Hide("disp_info")
                 action Hide("LocationsSubMenu"), Hide("disp_info"), Show("BobRoomIcons"), SetVariable("curLocForEvent","BobRoom"), Jump("GAMECONTINUE")
-            #textbutton "Bob's Room":
-            #    xalign 1.0
-            #    hovered Show("disp_info",None,info="Move to Bob's Room")
-            #    unhovered Hide("disp_info")
-            #    action Hide("LocationsSubMenu"), Hide("disp_info"), Show("BobRoomIcons"), SetVariable("curLocForEvent","BobRoom"), Jump("GAMECONTINUE")
             imagebutton:
                 xalign 1.0
                 idle "bedroom2_icon_idle"
@@ -138,11 +135,13 @@ screen LocationsSubMenu():
                 hovered Show("disp_info",None,info="Move to Lisa's Room")
                 unhovered Hide("disp_info")
                 action Hide("LocationsSubMenu"), Hide("BobRoomIcons"), Hide("disp_info"), SetVariable("curLocForEvent","LisaRoom"), Jump("GAMECONTINUE")
-            #textbutton "Lisa's Room":
-            #    xalign 1.0
-            #   hovered Show("disp_info",None,info="Move to Lisa's Room")
-            #    unhovered Hide("disp_info")
-            #    action Hide("LocationsSubMenu"), Hide("BobRoomIcons"), Hide("disp_info"), SetVariable("curLocForEvent","LisaRoom"), Jump("GAMECONTINUE")
+            imagebutton:
+                xalign 1.0
+                idle "bedroom3_icon_idle"
+                hover "bedroom3_icon_hover"
+                hovered Show("disp_info",None,info="Move to Alex's Room")
+                unhovered Hide("disp_info")
+                action Hide("LocationsSubMenu"), Hide("BobRoomIcons"), Hide("disp_info"), SetVariable("curLocForEvent","AlexRoom"), Jump("GAMECONTINUE")
             imagebutton:
                 xalign 1.0
                 idle "kitchen_icon_idle"
@@ -150,28 +149,13 @@ screen LocationsSubMenu():
                 hovered Show("disp_info",None,info="Move to Kitchen")
                 unhovered Hide("disp_info")
                 action Hide("LocationsSubMenu"), Hide("BobRoomIcons"), Hide("disp_info"), SetVariable("curLocForEvent","Kitchen"), Jump("GAMECONTINUE")
-            #textbutton "Kitchen":
-            #    xalign 1.0
-            #    hovered Show("disp_info",None,info="Move to Kitchen")
-            #    unhovered Hide("disp_info")
-            #    action Hide("LocationsSubMenu"), Hide("BobRoomIcons"), Hide("disp_info"), SetVariable("curLocForEvent","Kitchen"), Jump("GAMECONTINUE")
-            #textbutton "Dining Room":
-            #    xalign 1.0
-            #    hovered Show("disp_info",None,info="Move to Dining Room")
-            #    unhovered Hide("disp_info")
-            #    action Hide("LocationsSubMenu"), Hide("BobRoomIcons"), Hide("disp_info"), SetVariable("curLocForEvent","Diningroom"), Jump("GAMECONTINUE")
             imagebutton:
                 xalign 1.0
                 idle "tv_icon_idle"
                 hover "tv_icon_hover"
-                hovered Show("disp_info",None,info="Move to TV Room")
+                hovered Show("disp_info",None,info="Move to Living Room")
                 unhovered Hide("disp_info")
-                action Hide("LocationsSubMenu"), Hide("BobRoomIcons"), Hide("disp_info"), SetVariable("curLocForEvent","TVRoom"), Jump("GAMECONTINUE")
-            #textbutton "TV Room":
-            #    xalign 1.0
-            #    hovered Show("disp_info",None,info="Move to TV Room")
-            #    unhovered Hide("disp_info")
-            #    action Hide("LocationsSubMenu"), Hide("BobRoomIcons"), Hide("disp_info"), SetVariable("curLocForEvent","TVRoom"), Jump("GAMECONTINUE") 
+                action Hide("LocationsSubMenu"), Hide("BobRoomIcons"), Hide("disp_info"), SetVariable("curLocForEvent","LivingRoom"), Jump("GAMECONTINUE")
             imagebutton:
                 xalign 1.0
                 idle "bath_icon_idle"
@@ -179,18 +163,13 @@ screen LocationsSubMenu():
                 hovered Show("disp_info",None,info="Move to Bathroom")
                 unhovered Hide("disp_info")
                 action Hide("LocationsSubMenu"), Hide("BobRoomIcons"), Hide("disp_info"), SetVariable("curLocForEvent","Bathroom"), Jump("GAMECONTINUE")
-            #textbutton "Bathroom":
-            #    xalign 1.0
-            #    hovered Show("disp_info",None,info="Move to Bathroom")
-            #    unhovered Hide("disp_info")
-            #    action Hide("LocationsSubMenu"), Hide("BobRoomIcons"), Hide("disp_info"), SetVariable("curLocForEvent","Bathroom"), Jump("GAMECONTINUE")
             imagebutton:
                 xalign 1.0
                 idle "jacuzzi_icon_idle"
                 hover "jacuzzi_icon_hover"
                 hovered Show("disp_info",None,info="Move to Jacuzzi")
                 unhovered Hide("disp_info")
-                action Hide("LocationsSubMenu"), Hide("BobRoomIcons"), Hide("disp_info")#, SetVariable("curLocForEvent","Jacuzzi"), Jump("GAMECONTINUE")
+                action Hide("LocationsSubMenu"), Hide("BobRoomIcons"), Hide("disp_info"), SetVariable("curLocForEvent","Jacuzzi"), Jump("GAMECONTINUE")
 
 screen StatsSubMenu():
     frame:

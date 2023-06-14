@@ -81,12 +81,13 @@ label BobRoom:
     $ curLocForEvent = "BobRoom"
 
     if BobRoomFirstVisit:
-        hide screen Header        
-        scene bobroom_bg with dissolve
+        hide screen Header
+        hide screen BobRoomIcons        
+        scene dadroom_bg with dissolve
         m "This my bedroom"
         $ BobRoomFirstVisit = False
     else:
-        scene bobroom_bg with dissolve     
+        scene dadroom_bg with dissolve     
     
     show screen Header
     show screen BobRoomIcons
@@ -99,27 +100,59 @@ label LisaRoom:
 
     if LisaRoomFirstVisit:
         hide screen Header        
-        scene lisaroom_bg with dissolve
+        scene girlroom_bg with dissolve
         m "This Lisa's bedroom"
         $ LisaRoomFirstVisit = False
     else:
-        scene lisaroom_bg with dissolve
+        scene girlroom_bg with dissolve
        
     show screen Header
     
     return
 
-label TVRoom:
-    $ curLoc = "TV Room"
-    $ curLocForEvent = "TVRoom"
+label AlexRoom:
+    $ curLoc = "Alex's Room"
+    $ curLocForEvent = "AlexRoom"
+
+    if AlexRoomFirstVisit:
+        hide screen Header        
+        scene boyroom_bg with dissolve
+        m "This Alex's bedroom"
+        $ AlexRoomFirstVisit = False
+    else:
+        scene boyroom_bg with dissolve
+       
+    show screen Header
+    
+    return
+
+label LivingRoom:
+    $ curLoc = "Living Room"
+    $ curLocForEvent = "LivingRoom"
 
     if TVRoomFirstVisit:
         hide screen Header        
-        scene tvroom_bg with dissolve
+        scene livingroom_bg with dissolve
         m "This the TV room"
         $ TVRoomFirstVisit = False
     else:
-        scene tvroom_bg with dissolve     
+        scene livingroom_bg with dissolve     
+    
+    show screen Header 
+    
+    return
+
+label Jacuzzi:
+    $ curLoc = "Jacuzzi"
+    $ curLocForEvent = "Jacuzzi"
+
+    if JacuzziFirstVisit:
+        hide screen Header        
+        scene jacuzzi_bg with dissolve
+        m "This the Jacuzzi"
+        $ JacuzziFirstVisit = False
+    else:
+        scene jacuzzi_bg with dissolve     
     
     show screen Header 
     

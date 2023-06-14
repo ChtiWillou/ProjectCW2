@@ -36,18 +36,19 @@ label variables:
         "2300":"LisaRoom","2330":"LisaRoom","0000":"LisaRoom"
         })
 
-    $ curLoc = ""
-    $ curLocForEvent = ""
-    $ DiningRoomFirstVisit = True
-    $ BathroomFirstVisit = True
-    $ KitchenFirstVisit = True
-    $ TVRoomFirstVisit = True
-    $ BobRoomFirstVisit = True
-    $ LisaRoomFirstVisit = True
-    $ NbHackRead = 0
-    $ NbYogaRead = 0
-    $ NbPhotoRead = 0
-    $ NbStudyHours = 0
-    $ NbSportHours = 0
+    default curLoc = ""
+    default curLocForEvent = ""
+    default DiningRoomFirstVisit = True
+    default KitchenFirstVisit = True
+    default TVRoomFirstVisit = True
+    default BobRoomFirstVisit = True
+    default LisaRoomFirstVisit = True
+    default AlexRoomFirstVisit = True
+    default JacuzziFirstVisit = True
+    default NbHackRead = 0
+    default NbYogaRead = 0
+    default NbPhotoRead = 0
+    default NbStudyHours = 0
+    default NbSportHours = 0
 
     return
